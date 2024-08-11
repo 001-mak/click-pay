@@ -47,7 +47,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://www.click-pay.vercel.app/payment-success?amount=${amount}`,
+        return_url: `click-pay.vercel.app/payment-success?amount=${amount}`,
       },
     });
 
