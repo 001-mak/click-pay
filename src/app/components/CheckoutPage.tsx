@@ -7,8 +7,10 @@ import {
   PaymentElement,
 } from "@stripe/react-stripe-js";
 import convertToSubcurrency from "../lib/convertToSuburrency";
+import { useRouter } from 'next/navigation'
 
 const CheckoutPage = ({ amount }: { amount: number }) => {
+  const router = useRouter()
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState<string>();
@@ -47,7 +49,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `click-pay.vercel.app/payment-success?amount=${amount}`,
+        return_url: `http://www.localhost:3000/payment-success?amount=${amount}`,
       },
     });
 
@@ -79,7 +81,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-2 rounded-md">
+    <form onSubmit={()=>router.push(`https://www.click-pay.vercel.app/payment-success?amount=${amount}`)} className="bg-white p-2 rounded-md">
       {clientSecret && <PaymentElement />}
 
       {errorMessage && <div>{errorMessage}</div>}
