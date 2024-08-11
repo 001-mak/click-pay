@@ -81,7 +81,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
   }
 
   return (
-    <form onSubmit={()=>router.push(`https://www.click-pay.vercel.app/payment-success?amount=45`)} className="bg-white p-2 rounded-md">
+    <form onSubmit={()=>alert("Payment Recieved")} className="bg-white p-2 rounded-md">
     {/* // <form onSubmit={handleSubmit} className="bg-white p-2 rounded-md"> */}
       {clientSecret && <PaymentElement />}
 
