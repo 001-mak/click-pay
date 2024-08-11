@@ -49,7 +49,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://www.localhost:3000/payment-success?amount=${amount}`,
+        return_url: `click-r8nb5r8g1-ahsans-projects-b6ec6017.vercel.app/payment-success?amount=${amount}`,
       },
     });
 
@@ -81,7 +81,8 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
   }
 
   return (
-    <form onSubmit={()=>router.push(`https://www.click-pay.vercel.app/payment-success?amount=${amount}`)} className="bg-white p-2 rounded-md">
+    // <form onSubmit={()=>router.push(`http://www.localhost:3000/payment-success?amount=45`)} className="bg-white p-2 rounded-md">
+    <form onSubmit={handleSubmit} className="bg-white p-2 rounded-md">
       {clientSecret && <PaymentElement />}
 
       {errorMessage && <div>{errorMessage}</div>}
